@@ -38,6 +38,7 @@ int main(int argc, char** argv) {
 
     static bool did_load_script_file = false;
     if ((!did_load_script_file) && wi::initializer::IsInitializeFinished()) {
+      did_load_script_file = true;
       SDL_SetWindowTitle(app.window, wi::version::GetVersionString());
       // SDL_SetWindowFullscreen(app.window, SDL_WINDOW_FULLSCREEN_DESKTOP);
       wi::lua::RunFile("../../3rdparty/turanszkij_WickedEngine/Content/scripts/" WHICH "/" WHICH ".lua");
