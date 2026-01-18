@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run",
+            "type": "gdb",
+            "request": "launch",
+            "target": "vkgfx.exec",
+            "cwd": "${fileWorkspaceFolder}/.build/debug",
+            "env": {
+                "UBSAN_OPTIONS": "print_stacktrace=1",
+                "LSAN_OPTIONS": "log_threads=1"
+            },
+            "valuesFormatting": "disabled",
+            "preLaunchTask": "mesonBuildDebug",
+            "internalConsoleOptions": "openOnSessionStart"
+        }
+    ]
+}

@@ -1,0 +1,5 @@
+option(
+    'WICKED_BUILD_DIR',
+    type: 'string',
+    value: '3rdparty/turanszkij_WickedEngine/.build_RelWithDebInfo',
+)
