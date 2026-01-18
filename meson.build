@@ -96,3 +96,14 @@ executable(
         'gd01/main.cpp',
     ],
 )
+
+executable(
+    'gd02.exec',
+    dependencies: [dep_sdl2, dep_wicked],
+    link_language: 'cpp',
+    implicit_include_directories: true,
+    # native: true, # https://github.com/mesonbuild/meson/discussions/14218
+    sources: [
+        'gd02/main.cpp',
+    ],
+)

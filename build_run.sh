@@ -1,1 +1,1 @@
-cd .build/debug/ && meson compile && ./gd01.exec
+cd .build/debug/ && meson compile && ./gd02.exec
