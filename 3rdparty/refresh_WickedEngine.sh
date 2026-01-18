@@ -22,6 +22,13 @@ mv WickedEngine-$depVer $depDirName
 
 cd $depDirName
 
+rm -rf .build_dbg
+mkdir .build_dbg
+cd .build_dbg
+cmake .. -DCMAKE_BUILD_TYPE=Debug -DWICKED_ENABLE_IPO=NO -DWICKED_EDITOR=OFF -DWICKED_TESTS=OFF -DWICKED_IMGUI_EXAMPLE=OFF -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+make
+cd ..
+
 rm -rf .build_dev
 mkdir .build_dev
 cd .build_dev

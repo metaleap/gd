@@ -1,4 +1,5 @@
 #include "WickedEngine.h"
+#include "wiInitializer.h"
 #include <SDL2/SDL.h>
 
 
@@ -25,10 +26,12 @@ int main(int argc, char** argv) {
   }
 
   wi::Application app;
-  wi::renderer::SetShaderPath("../../3rdparty/turanszkij_WickedEngine/.shaders/");
-  wi::renderer::SetShaderSourcePath("../../3rdparty/turanszkij_WickedEngine/WickedEngine/shaders/");
+  wi::renderer::SetShaderPath("3rdparty/turanszkij_WickedEngine/.shaders/");
+  wi::renderer::SetShaderSourcePath("3rdparty/turanszkij_WickedEngine/WickedEngine/shaders/");
   app.SetWindow(sdl_win.get());
   app.Initialize();
+  wi::RenderPath3D path;
+  app.ActivatePath(&path);
 
   bool      quit = false;
   SDL_Event event;
@@ -41,7 +44,7 @@ int main(int argc, char** argv) {
       did_load_script_file = true;
       SDL_SetWindowTitle(app.window, wi::version::GetVersionString());
       // SDL_SetWindowFullscreen(app.window, SDL_WINDOW_FULLSCREEN_DESKTOP);
-      wi::lua::RunFile("../../3rdparty/turanszkij_WickedEngine/Content/scripts/" WHICH "/" WHICH ".lua");
+      wi::lua::RunFile("3rdparty/turanszkij_WickedEngine/Content/scripts/" WHICH "/" WHICH ".lua");
     }
 
     while (SDL_PollEvent(&event) != 0) {

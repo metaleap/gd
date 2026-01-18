@@ -5,14 +5,14 @@
             "name": "Run",
             "type": "gdb",
             "request": "launch",
-            "target": "vkgfx.exec",
-            "cwd": "${fileWorkspaceFolder}/.build/debug",
+            "target": "gd02.exec",
+            "cwd": "${fileWorkspaceFolder}/.build/dev",
             "env": {
                 "UBSAN_OPTIONS": "print_stacktrace=1",
                 "LSAN_OPTIONS": "log_threads=1"
             },
             "valuesFormatting": "disabled",
-            "preLaunchTask": "mesonBuildDebug",
+            "preLaunchTask": "mesonBuildDev",
             "internalConsoleOptions": "openOnSessionStart"
         }
     ]

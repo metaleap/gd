@@ -3,11 +3,20 @@
     "tasks": [
         {
             "type": "shell",
-            "label": "mesonBuildDebug",
-            "command": "time meson compile -C .build/debug && cp .build/debug/compile_commands.json .",
+            "label": "mesonBuildDbg",
+            "command": "time meson compile -C .build/dbg && cp .build/dbg/compile_commands.json .",
             "group": {
                 "kind": "build",
                 "isDefault": true
+            }
+        },
+        {
+            "type": "shell",
+            "label": "mesonBuildDev",
+            "command": "time meson compile -C .build/dev && cp .build/dev/compile_commands.json .",
+            "group": {
+                "kind": "build",
+                "isDefault": false
             }
         },
         {
