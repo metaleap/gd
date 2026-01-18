@@ -5,6 +5,8 @@ thisScriptsFilePath="$(readlink --canonicalize-existing "$0")"
 thisScriptsDirPath="$(dirname "$thisScriptsFilePath")"
 cd $thisScriptsDirPath
 
+
+
 cd 3rdparty
 ./refresh_WickedEngine.sh
-cd ..
+cd $thisScriptsDirPath
