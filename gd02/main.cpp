@@ -1,5 +1,4 @@
 #include "WickedEngine.h"
-#include "wiInitializer.h"
 #include <SDL2/SDL.h>
 
 
