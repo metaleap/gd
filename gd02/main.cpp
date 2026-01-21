@@ -1,4 +1,4 @@
-#include "WickedEngine.h"
+#include "../pch/wi_pch.h"
 #include <SDL2/SDL.h>
 
 
@@ -16,7 +16,7 @@ int main(int argc, char** argv) {
   }
 
   auto sdl_win =
-      sdl2::make_window("Updating shaders, please wait a minute...", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 960,
+      sdl2::make_window("Updating shaders, please wait a minute..", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 960,
                         600, SDL_WINDOW_SHOWN | SDL_WINDOW_VULKAN | SDL_WINDOW_ALLOW_HIGHDPI | SDL_WINDOW_RESIZABLE);
   if (!sdl_win) {
     fprintf(stderr, "Failed to make window: %s", SDL_GetError());
@@ -43,7 +43,8 @@ int main(int argc, char** argv) {
       did_load_script_file = true;
       SDL_SetWindowTitle(app.window, wi::version::GetVersionString());
       // SDL_SetWindowFullscreen(app.window, SDL_WINDOW_FULLSCREEN_DESKTOP);
-      wi::lua::RunFile("3rdparty/turanszkij_WickedEngine/Content/scripts/" WHICH "/" WHICH ".lua");
+      if (!wi::lua::RunFile("3rdparty/turanszkij_WickedEngine/Content/scripts/" WHICH "/" WHICH ".lua"))
+        break;
     }
 
     while (SDL_PollEvent(&event) != 0) {

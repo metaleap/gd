@@ -80,7 +80,6 @@ executable(
     dependencies: [dep_sdl2],
     link_language: 'cpp',
     implicit_include_directories: true,
-    # native: true, # https://github.com/mesonbuild/meson/discussions/14218
     sources: [
         'gd00/main.cpp',
     ],
@@ -88,10 +87,10 @@ executable(
 
 executable(
     'gd01.exec',
+    cpp_pch: 'pch/wi_pch.h',
     dependencies: [dep_sdl2, dep_wicked],
     link_language: 'cpp',
     implicit_include_directories: true,
-    # native: true, # https://github.com/mesonbuild/meson/discussions/14218
     sources: [
         'gd01/main.cpp',
     ],
@@ -99,10 +98,10 @@ executable(
 
 executable(
     'gd02.exec',
+    cpp_pch: 'pch/wi_pch.h',
     dependencies: [dep_sdl2, dep_wicked],
     link_language: 'cpp',
     implicit_include_directories: true,
-    # native: true, # https://github.com/mesonbuild/meson/discussions/14218
     sources: [
         'gd02/main.cpp',
     ],

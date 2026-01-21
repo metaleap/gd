@@ -7,13 +7,25 @@
   },
   {
     "directory": "/home/_/c/c/gd/.build/dev",
-    "command": "c++ -Igd01.exec.p -I. -I../.. -I../../3rdparty/turanszkij_WickedEngine/WickedEngine -fdiagnostics-color=always -fsanitize=undefined -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -fno-exceptions -fno-rtti -std=c++20 -O0 -g -DSDL2=1 -DWI_UNORDERED_MAP_TYPE=2 -mf16c -gsplit-dwarf -fms-extensions -msse2 -mfpmath=sse -march=native -Wno-switch -Wno-unused-variable -DDEVBUILD -pthread -isystem/usr/include/SDL2 -D_GNU_SOURCE=1 -D_REENTRANT -MD -MQ gd01.exec.p/gd01_main.cpp.o -MF gd01.exec.p/gd01_main.cpp.o.d -o gd01.exec.p/gd01_main.cpp.o -c ../../gd01/main.cpp",
+    "command": "c++ -Igd01.exec.p -I. -I../.. -I../../3rdparty/turanszkij_WickedEngine/WickedEngine -fdiagnostics-color=always -fsanitize=undefined -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -fno-exceptions -fno-rtti -std=c++20 -O0 -g -DSDL2=1 -DWI_UNORDERED_MAP_TYPE=2 -mf16c -gsplit-dwarf -fms-extensions -msse2 -mfpmath=sse -march=native -Wno-switch -Wno-unused-variable -DDEVBUILD -pthread -isystem/usr/include/SDL2 -D_GNU_SOURCE=1 -D_REENTRANT -x c++-header -MD -MQ gd01.exec.p/wi_pch.h.gch -MF gd01.exec.p/wi_pch.h.gch.d -o gd01.exec.p/wi_pch.h.gch -c ../../pch/wi_pch.h",
+    "file": "../../pch/wi_pch.h",
+    "output": "gd01.exec.p/wi_pch.h.gch"
+  },
+  {
+    "directory": "/home/_/c/c/gd/.build/dev",
+    "command": "c++ -Igd01.exec.p -I. -I../.. -I../../3rdparty/turanszkij_WickedEngine/WickedEngine -fdiagnostics-color=always -fsanitize=undefined -D_GLIBCXX_ASSERTIONS=1 -fpch-preprocess -include wi_pch.h -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -fno-exceptions -fno-rtti -std=c++20 -O0 -g -DSDL2=1 -DWI_UNORDERED_MAP_TYPE=2 -mf16c -gsplit-dwarf -fms-extensions -msse2 -mfpmath=sse -march=native -Wno-switch -Wno-unused-variable -DDEVBUILD -pthread -isystem/usr/include/SDL2 -D_GNU_SOURCE=1 -D_REENTRANT -MD -MQ gd01.exec.p/gd01_main.cpp.o -MF gd01.exec.p/gd01_main.cpp.o.d -o gd01.exec.p/gd01_main.cpp.o -c ../../gd01/main.cpp",
     "file": "../../gd01/main.cpp",
     "output": "gd01.exec.p/gd01_main.cpp.o"
   },
   {
     "directory": "/home/_/c/c/gd/.build/dev",
-    "command": "c++ -Igd02.exec.p -I. -I../.. -I../../3rdparty/turanszkij_WickedEngine/WickedEngine -fdiagnostics-color=always -fsanitize=undefined -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -fno-exceptions -fno-rtti -std=c++20 -O0 -g -DSDL2=1 -DWI_UNORDERED_MAP_TYPE=2 -mf16c -gsplit-dwarf -fms-extensions -msse2 -mfpmath=sse -march=native -Wno-switch -Wno-unused-variable -DDEVBUILD -pthread -isystem/usr/include/SDL2 -D_GNU_SOURCE=1 -D_REENTRANT -MD -MQ gd02.exec.p/gd02_main.cpp.o -MF gd02.exec.p/gd02_main.cpp.o.d -o gd02.exec.p/gd02_main.cpp.o -c ../../gd02/main.cpp",
+    "command": "c++ -Igd02.exec.p -I. -I../.. -I../../3rdparty/turanszkij_WickedEngine/WickedEngine -fdiagnostics-color=always -fsanitize=undefined -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -fno-exceptions -fno-rtti -std=c++20 -O0 -g -DSDL2=1 -DWI_UNORDERED_MAP_TYPE=2 -mf16c -gsplit-dwarf -fms-extensions -msse2 -mfpmath=sse -march=native -Wno-switch -Wno-unused-variable -DDEVBUILD -pthread -isystem/usr/include/SDL2 -D_GNU_SOURCE=1 -D_REENTRANT -x c++-header -MD -MQ gd02.exec.p/wi_pch.h.gch -MF gd02.exec.p/wi_pch.h.gch.d -o gd02.exec.p/wi_pch.h.gch -c ../../pch/wi_pch.h",
+    "file": "../../pch/wi_pch.h",
+    "output": "gd02.exec.p/wi_pch.h.gch"
+  },
+  {
+    "directory": "/home/_/c/c/gd/.build/dev",
+    "command": "c++ -Igd02.exec.p -I. -I../.. -I../../3rdparty/turanszkij_WickedEngine/WickedEngine -fdiagnostics-color=always -fsanitize=undefined -D_GLIBCXX_ASSERTIONS=1 -fpch-preprocess -include wi_pch.h -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -fno-exceptions -fno-rtti -std=c++20 -O0 -g -DSDL2=1 -DWI_UNORDERED_MAP_TYPE=2 -mf16c -gsplit-dwarf -fms-extensions -msse2 -mfpmath=sse -march=native -Wno-switch -Wno-unused-variable -DDEVBUILD -pthread -isystem/usr/include/SDL2 -D_GNU_SOURCE=1 -D_REENTRANT -MD -MQ gd02.exec.p/gd02_main.cpp.o -MF gd02.exec.p/gd02_main.cpp.o.d -o gd02.exec.p/gd02_main.cpp.o -c ../../gd02/main.cpp",
     "file": "../../gd02/main.cpp",
     "output": "gd02.exec.p/gd02_main.cpp.o"
   }
