@@ -1,2 +1,3 @@
 compile_commands.json linguist-generated=true
 log.txt linguist-generated=true
+*.witheme linguist-generated=true

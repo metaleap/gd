@@ -2,5 +2,9 @@
 .cache
 3rdparty/*/*
 log.txt
+shaders
+spirv
+*.so
+*.a
 
 *.kate-swp

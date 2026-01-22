@@ -2,18 +2,30 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Run",
+            "name": "Run Wicked Editor debug build",
             "type": "gdb",
             "request": "launch",
-            "target": "gd02.exec",
-            "cwd": "${fileWorkspaceFolder}/.build/dev",
+            "target": "Editor",
+            "cwd": "${fileWorkspaceFolder}/3rdparty/turanszkij_WickedEngine/.build_dbg/Editor",
             "env": {
                 "UBSAN_OPTIONS": "print_stacktrace=1",
                 "LSAN_OPTIONS": "log_threads=1"
             },
             "valuesFormatting": "disabled",
-            "preLaunchTask": "mesonBuildDev",
             "internalConsoleOptions": "openOnSessionStart"
-        }
+        },
+        // {
+        //     "name": "Run",
+        //     "type": "gdb",
+        //     "request": "launch",
+        //     "target": ".build/dev/gd02.exec",
+        //     "cwd": "${fileWorkspaceFolder}",
+        //     "env": {
+        //         "UBSAN_OPTIONS": "print_stacktrace=1",
+        //         "LSAN_OPTIONS": "log_threads=1"
+        //     },
+        //     "valuesFormatting": "disabled",
+        //     "internalConsoleOptions": "openOnSessionStart"
+        // }
     ]
 }

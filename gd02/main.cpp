@@ -16,7 +16,7 @@ int main(int argc, char** argv) {
   }
 
   auto sdl_win =
-      sdl2::make_window("Updating shaders, please wait a minute..", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 960,
+      sdl2::make_window("Updating shaders, please wait a minute...", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 960,
                         600, SDL_WINDOW_SHOWN | SDL_WINDOW_VULKAN | SDL_WINDOW_ALLOW_HIGHDPI | SDL_WINDOW_RESIZABLE);
   if (!sdl_win) {
     fprintf(stderr, "Failed to make window: %s", SDL_GetError());
@@ -25,8 +25,8 @@ int main(int argc, char** argv) {
   }
 
   wi::Application app;
-  wi::renderer::SetShaderPath("3rdparty/turanszkij_WickedEngine/.shaders/");
   wi::renderer::SetShaderSourcePath("3rdparty/turanszkij_WickedEngine/WickedEngine/shaders/");
+  wi::renderer::SetShaderPath("3rdparty/turanszkij_WickedEngine/.shaders/");
   app.SetWindow(sdl_win.get());
   app.Initialize();
   wi::RenderPath3D path;

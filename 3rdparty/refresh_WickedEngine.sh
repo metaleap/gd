@@ -17,6 +17,8 @@ wget -O .tmp.zip https://github.com/turanszkij/WickedEngine/archive/refs/tags/v$
 unzip .tmp.zip
 rm -f .tmp.zip
 mv WickedEngine-$depVer $depDirName
+mkdir $depDirName/.shaders
+mkdir $depDirName/.shaders/spirv
 
 ### build
 
@@ -25,7 +27,7 @@ cd $depDirName
 rm -rf .build_dbg
 mkdir .build_dbg
 cd .build_dbg
-cmake .. -DCMAKE_BUILD_TYPE=Debug -DWICKED_ENABLE_IPO=NO -DWICKED_EDITOR=OFF -DWICKED_TESTS=OFF -DWICKED_IMGUI_EXAMPLE=OFF -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+cmake .. -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 make
 cd ..
 
@@ -40,15 +42,22 @@ cd ..
 rm -rf .build_release_gcc
 mkdir .build_release_gcc
 cd .build_release_gcc
-cmake .. -DCMAKE_BUILD_TYPE=Release -DWICKED_EDITOR=OFF -DWICKED_TESTS=OFF -DWICKED_IMGUI_EXAMPLE=OFF -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+cmake .. -DCMAKE_BUILD_TYPE=Release
 make
 cd ..
 
 rm -rf .build_release_clang
 mkdir .build_release_clang
 cd .build_release_clang
-CXX=clang++ CC=clang CXX_LD=lld C_LD=lld cmake .. -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_BUILD_TYPE=Release -DWICKED_EDITOR=OFF -DWICKED_TESTS=OFF -DWICKED_IMGUI_EXAMPLE=OFF -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+CXX=clang++ CC=clang CXX_LD=lld C_LD=lld cmake .. -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_BUILD_TYPE=Release -DWICKED_EDITOR=OFF -DWICKED_TESTS=OFF -DWICKED_IMGUI_EXAMPLE=OFF
 CXX=clang++ CC=clang CXX_LD=lld C_LD=lld make
 cd ..
 
 cd $thisScriptsDirPath
+
+
+
+mkdir turanszkij_WickedEngine/.build_dbg/Editor/themes
+mkdir turanszkij_WickedEngine/.build_release_gcc/Editor/themes
+cp *.witheme turanszkij_WickedEngine/.build_dbg/Editor/themes/
+cp *.witheme turanszkij_WickedEngine/.build_release_gcc/Editor/themes/
