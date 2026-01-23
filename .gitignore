@@ -2,6 +2,7 @@
 .cache
 3rdparty/*/*
 log.txt
+.misc
 shaders
 spirv
 *.so
