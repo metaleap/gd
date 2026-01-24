@@ -63,3 +63,5 @@ cp *.witheme turanszkij_WickedEngine/.build_dbg/Editor/themes/
 cp *.witheme turanszkij_WickedEngine/.build_release_gcc/Editor/themes/
 cp config.ini turanszkij_WickedEngine/.build_dbg/Editor/
 cp config.ini turanszkij_WickedEngine/.build_release_gcc/Editor/
+cp startup.lua turanszkij_WickedEngine/.build_dbg/Editor/
+cp startup.lua turanszkij_WickedEngine/.build_release_gcc/Editor/
