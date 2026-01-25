@@ -14,18 +14,19 @@
             "valuesFormatting": "disabled",
             "internalConsoleOptions": "openOnSessionStart"
         },
-        // {
-        //     "name": "Run",
-        //     "type": "gdb",
-        //     "request": "launch",
-        //     "target": ".build/dev/gd02.exec",
-        //     "cwd": "${fileWorkspaceFolder}",
-        //     "env": {
-        //         "UBSAN_OPTIONS": "print_stacktrace=1",
-        //         "LSAN_OPTIONS": "log_threads=1"
-        //     },
-        //     "valuesFormatting": "disabled",
-        //     "internalConsoleOptions": "openOnSessionStart"
-        // }
+        {
+            "name": "Run gd__",
+            "type": "gdb",
+            "request": "launch",
+            "target": "${fileWorkspaceFolder}/.build/dbg/gd02.exec",
+            "cwd": "${fileWorkspaceFolder}",
+            "env": {
+                "LD_LIBRARY_PATH": "${fileWorkspaceFolder}/3rdparty/turanszkij_WickedEngine/WickedEngine",
+                "UBSAN_OPTIONS": "print_stacktrace=1",
+                "LSAN_OPTIONS": "log_threads=1"
+            },
+            "valuesFormatting": "disabled",
+            "internalConsoleOptions": "openOnSessionStart"
+        }
     ]
 }

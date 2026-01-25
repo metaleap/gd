@@ -1,1 +1,4 @@
-time meson compile -C .build/dbg && cp .build/dbg/compile_commands.json .
+#!/usr/bin/bash
+set -e
+
+time meson compile -C .build/dbg

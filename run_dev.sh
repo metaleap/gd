@@ -1,3 +1,3 @@
 ./build_dev.sh
-cp 3rdparty/turanszkij_WickedEngine/.build_dev/WickedEngine/libdxcompiler.so .
-./.build/dev/gd02.exec
+name=gd02
+LD_LIBRARY_PATH=3rdparty/turanszkij_WickedEngine/WickedEngine .build/dev/$name.exec

@@ -11,28 +11,28 @@ rm -rf .cache
 rm -rf .build
 mkdir .build
 
-wi_build_dir="3rdparty/turanszkij_WickedEngine/.build_dbg"
 mkdir .build/dbg
 mkdir .build/dbg/shaders
-cp $wi_build_dir/WickedEngine/libdxcompiler.so .build/dbg/
-meson setup -DWICKED_BUILD_DIR=$wi_build_dir --native-file meson_native.ini .build/dbg -Db_sanitize=undefined
-
 wi_build_dir="3rdparty/turanszkij_WickedEngine/.build_dev"
+cp $wi_build_dir/WickedEngine/libdxcompiler.so .build/dbg/
+CXX_LD=mold CC_LD=mold meson setup .build/dbg -DWICKED_BUILD_DIR=$wi_build_dir -Dbuildtype=debug -Dcpp_args="-DDEVBUILD=1" -Dc_args="-DDEVBUILD=1"
+
 mkdir .build/dev
 mkdir .build/dev/shaders
+wi_build_dir="3rdparty/turanszkij_WickedEngine/.build_dev"
 cp $wi_build_dir/WickedEngine/libdxcompiler.so .build/dev/
-meson setup -DWICKED_BUILD_DIR=$wi_build_dir --native-file meson_native.ini .build/dev -Db_sanitize=undefined
+CXX_LD=mold CC_LD=mold meson setup .build/dev -DWICKED_BUILD_DIR=$wi_build_dir -Dbuildtype=custom -Ddebug=false -Dcpp_args="-DDEVBUILD=1" -Dc_args="-DDEVBUILD=1"
 
-wi_build_dir="3rdparty/turanszkij_WickedEngine/.build_release_gcc"
 mkdir .build/release_gcc
 mkdir .build/release_gcc/shaders
+wi_build_dir="3rdparty/turanszkij_WickedEngine/.build_release_gcc"
 cp $wi_build_dir/WickedEngine/libdxcompiler.so .build/release_gcc/
-meson setup -DWICKED_BUILD_DIR=$wi_build_dir -Dbuildtype=release -Dprefer_static=true .build/release_gcc
+CXX_LD=mold CC_LD=mold meson setup .build/release_gcc -Db_pch=false -DWICKED_BUILD_DIR=$wi_build_dir -Dbuildtype=release -Dprefer_static=true
 
-wi_build_dir="3rdparty/turanszkij_WickedEngine/.build_release_clang"
 mkdir .build/release_clang
 mkdir .build/release_clang/shaders
+wi_build_dir="3rdparty/turanszkij_WickedEngine/.build_release_clang"
 cp $wi_build_dir/WickedEngine/libdxcompiler.so .build/release_clang/
-CXX=clang++ CC=clang CXX_LD=lld C_LD=lld meson setup -DWICKED_BUILD_DIR=$wi_build_dir -Dbuildtype=release -Dprefer_static=true .build/release_clang
+CXX=clang++ CC=clang CXX_LD=lld CC_LD=lld meson setup .build/release_clang -Db_pch=false -DWICKED_BUILD_DIR=$wi_build_dir -Dbuildtype=release -Dprefer_static=true
 
-cp .build/dbg/compile_commands.json .
+cp .build/dev/compile_commands.json .

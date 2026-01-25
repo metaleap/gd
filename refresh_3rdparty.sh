@@ -6,7 +6,7 @@ thisScriptsDirPath="$(dirname "$thisScriptsFilePath")"
 cd $thisScriptsDirPath
 
 
-
+rm -rf .shaders/*
 cd 3rdparty
 ./refresh_WickedEngine.sh
 cd $thisScriptsDirPath

@@ -1,5 +1,5 @@
-#include "WickedEngine.h"
 #include <SDL2/SDL.h>
+#include "WickedEngine.h"
 
 wi::Application application;
 
@@ -7,7 +7,7 @@ int main(int argc, char* argv[]) {
   // SDL window setup:
   sdl2::sdlsystem_ptr_t system = sdl2::make_sdlsystem(SDL_INIT_EVERYTHING | SDL_INIT_EVENTS);
   sdl2::window_ptr_t    window =
-      sdl2::make_window("WickedEngine Empty App", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1920, 1080,
+      sdl2::make_window("WickedEngine Empty App", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 500,
                         SDL_WINDOW_SHOWN | SDL_WINDOW_VULKAN | SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI);
 
   // set SDL window to engine:

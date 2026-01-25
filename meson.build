@@ -75,6 +75,25 @@ dep_wicked = declare_dependency(
     include_directories: include_directories('3rdparty/turanszkij_WickedEngine/WickedEngine'),
 )
 
+# lib_wiso = library(
+#     'wiso',
+#     dependencies: [
+#         dep_pthread,
+#         dep_sdl2,
+#         dep_lua,
+#         dep_jolt,
+#         dep_faudio,
+#         dep_wiutil,
+#         dep_wicked,
+#     ],
+#     link_language: 'cpp',
+#     implicit_include_directories: true,
+#     cpp_pch: 'pch/wi_pch.h',
+#     sources: [
+#         'wiso/wiso.cpp',
+#     ],
+# )
+
 executable(
     'gd00.exec',
     dependencies: [dep_sdl2],
@@ -91,6 +110,7 @@ executable(
     dependencies: [dep_sdl2, dep_wicked],
     link_language: 'cpp',
     implicit_include_directories: true,
+    # link_with: [lib_wiso], # not anytime soon I guess =(
     sources: [
         'gd01/main.cpp',
     ],
