@@ -126,3 +126,14 @@ executable(
         'gd02/main.cpp',
     ],
 )
+
+executable(
+    'gd03_gdtv_01_project_boost.exec',
+    cpp_pch: 'pch/wi_pch.h',
+    dependencies: [dep_sdl2, dep_wicked],
+    link_language: 'cpp',
+    implicit_include_directories: true,
+    sources: [
+        'gd03/main.cpp',
+    ],
+)

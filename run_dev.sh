@@ -1,3 +1,3 @@
 ./build_dev.sh
-name=gd02
+name=gd03_gdtv_01_project_boost
 LD_LIBRARY_PATH=3rdparty/turanszkij_WickedEngine/WickedEngine .build/dev/$name.exec

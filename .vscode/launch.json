@@ -18,7 +18,7 @@
             "name": "Run gd__",
             "type": "gdb",
             "request": "launch",
-            "target": "${fileWorkspaceFolder}/.build/dbg/gd02.exec",
+            "target": "${fileWorkspaceFolder}/.build/dbg/gd03.exec",
             "cwd": "${fileWorkspaceFolder}",
             "env": {
                 "LD_LIBRARY_PATH": "${fileWorkspaceFolder}/3rdparty/turanszkij_WickedEngine/WickedEngine",
