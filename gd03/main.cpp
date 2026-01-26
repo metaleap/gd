@@ -3,7 +3,7 @@
 
 
 #ifndef GAME_DATA_DIR
-#define GAME_DATA_DIR "/gdtv_01_project_boost/"
+#define GAME_DATA_DIR "/wi00_projwiz/"
 #endif
 
 
