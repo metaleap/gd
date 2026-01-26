@@ -74,9 +74,7 @@ int main(int argc, char** argv) {
     while (SDL_PollEvent(&event) != 0) {
       switch (event.type) {
         case SDL_QUIT:
-          if (event.key.keysym.mod & KMOD_CTRL)
-            goto quit;
-          break;
+          goto quit;
         case SDL_KEYDOWN:
           switch (event.key.keysym.sym) {
 #if DEVBUILD
