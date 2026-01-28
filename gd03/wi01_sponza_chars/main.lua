@@ -8,7 +8,7 @@ runProcess(function()
     local cam = GetCamera()
 	cam.SetFOV(44 * (math.pi / 180)) -- deg2rad
 
-    LoadModel(script_dir() .. "/Sponza/Sponza.wiscene")
+    LoadModel(script_dir() .. "/art/Sponza/Sponza.wiscene")
     local emitter = scene.Entity_FindByName('editorEmitter')
     if emitter ~= INVALID_ENTITY then
 		scene.Entity_Remove(emitter)

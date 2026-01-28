@@ -6,7 +6,7 @@ runProcess(function()
 	local camera = GetCamera()
 
 	-- load a sample model simply into the current global scene from an asset file:
-	local cube_root_entity = LoadModel(script_dir() .. "/cube.wiscene")
+	local cube_root_entity = LoadModel(script_dir() .. "/art/cube.wiscene")
 
 	-- create a point light to be able to see the cube:
 	local light_entity = CreateEntity()

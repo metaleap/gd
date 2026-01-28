@@ -3,6 +3,7 @@
 3rdparty/*/*
 log.txt
 .misc
+art
 .shaders
 shaders
 spirv
