@@ -2,8 +2,8 @@
 #include "WickedEngine.h"
 
 
-#ifndef GAME_DATA_DIR
-#define GAME_DATA_DIR "/wi00_projwiz/"
+#ifndef GD_GAME_NAME
+#define GD_GAME_NAME "doesnt_exist"
 #endif
 
 
@@ -19,12 +19,12 @@ int main(int argc, char** argv) {
     }
   }
 #if DEVBUILD
-  auto content_dir_path    = cur_dir_path + "/../../gd03" + GAME_DATA_DIR;
+  auto content_dir_path    = cur_dir_path + "/../../gd03/" + GD_GAME_NAME + "/";
   auto shader_src_dir_path = cur_dir_path + "/../../3rdparty/turanszkij_WickedEngine/WickedEngine/shaders/";
   auto shader_bin_dir_path = cur_dir_path + "/../../.shaders/";
 #else
-  auto content_dir_path    = cur_dir_path + GAME_DATA_DIR;
-  auto shader_src_dir_path = cur_dir_path + GAME_DATA_DIR + "shaders/";
+  auto content_dir_path    = cur_dir_path + "/" + GD_GAME_NAME + "/";
+  auto shader_src_dir_path = cur_dir_path + "/" + GD_GAME_NAME + "/shaders/";
   auto shader_bin_dir_path = cur_dir_path + "/.shaders/";
 #endif
 

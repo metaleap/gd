@@ -75,6 +75,24 @@ dep_wicked = declare_dependency(
   include_directories: include_directories('3rdparty/turanszkij_WickedEngine/WickedEngine'),
 )
 
+# lib_wiso = library(
+#     'wiso',
+#     dependencies: [
+#         dep_pthread,
+#         dep_sdl2,
+#         dep_lua,
+#         dep_jolt,
+#         dep_faudio,
+#         dep_wiutil,
+#         dep_wicked,
+#     ],
+#     link_language: 'cpp',
+#     implicit_include_directories: true,
+#     cpp_pch: 'pch/wi_pch.h',
+#     sources: [
+#         'wiso/wiso.cpp',
+#     ],
+
 executable(
   'gd00.exec',
   dependencies: [dep_sdl2],
@@ -124,8 +142,8 @@ executable(
 )
 
 executable(
-  'gd03_gdtv01_project_boost.exec',
-  cpp_args:['-DGD_GAME_NAME="gdtv01_project_boost"'],
+  'gd03_wi01_sponza_chars.exec',
+  cpp_args:['-DGD_GAME_NAME="wi01_sponza_chars"'],
   cpp_pch: 'pch/wi_pch.h',
   dependencies: gd03_deps,
   link_language: 'cpp',

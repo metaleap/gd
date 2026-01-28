@@ -43,14 +43,14 @@
   },
   {
     "directory": "/home/_/c/c/gd/.build/dev",
-    "command": "/usr/bin/ccache c++ -Igd03_gdtv01_project_boost.exec.p -I. -I../.. -I../../3rdparty/turanszkij_WickedEngine/WickedEngine -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -fno-exceptions -fno-rtti -std=c++20 -O0 -DSDL2=1 -DWI_UNORDERED_MAP_TYPE=2 -mf16c -gsplit-dwarf -fms-extensions -msse2 -mfpmath=sse -march=native -Wno-switch -Wno-unused-variable -DDEVBUILD=1 -pthread -isystem/usr/include/SDL2 -D_GNU_SOURCE=1 -D_REENTRANT '-DGD_GAME_NAME=\"gdtv01_project_boost\"' -x c++-header -MD -MQ gd03_gdtv01_project_boost.exec.p/wi_pch.h.gch -MF gd03_gdtv01_project_boost.exec.p/wi_pch.h.gch.d -o gd03_gdtv01_project_boost.exec.p/wi_pch.h.gch -c ../../pch/wi_pch.h",
+    "command": "/usr/bin/ccache c++ -Igd03_wi01_sponza_chars.exec.p -I. -I../.. -I../../3rdparty/turanszkij_WickedEngine/WickedEngine -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -fno-exceptions -fno-rtti -std=c++20 -O0 -DSDL2=1 -DWI_UNORDERED_MAP_TYPE=2 -mf16c -gsplit-dwarf -fms-extensions -msse2 -mfpmath=sse -march=native -Wno-switch -Wno-unused-variable -DDEVBUILD=1 -pthread -isystem/usr/include/SDL2 -D_GNU_SOURCE=1 -D_REENTRANT '-DGD_GAME_NAME=\"wi01_sponza_chars\"' -x c++-header -MD -MQ gd03_wi01_sponza_chars.exec.p/wi_pch.h.gch -MF gd03_wi01_sponza_chars.exec.p/wi_pch.h.gch.d -o gd03_wi01_sponza_chars.exec.p/wi_pch.h.gch -c ../../pch/wi_pch.h",
     "file": "../../pch/wi_pch.h",
-    "output": "gd03_gdtv01_project_boost.exec.p/wi_pch.h.gch"
+    "output": "gd03_wi01_sponza_chars.exec.p/wi_pch.h.gch"
   },
   {
     "directory": "/home/_/c/c/gd/.build/dev",
-    "command": "/usr/bin/ccache c++ -Igd03_gdtv01_project_boost.exec.p -I. -I../.. -I../../3rdparty/turanszkij_WickedEngine/WickedEngine -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -fpch-preprocess -include wi_pch.h -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -fno-exceptions -fno-rtti -std=c++20 -O0 -DSDL2=1 -DWI_UNORDERED_MAP_TYPE=2 -mf16c -gsplit-dwarf -fms-extensions -msse2 -mfpmath=sse -march=native -Wno-switch -Wno-unused-variable -DDEVBUILD=1 -pthread -isystem/usr/include/SDL2 -D_GNU_SOURCE=1 -D_REENTRANT '-DGD_GAME_NAME=\"gdtv01_project_boost\"' -MD -MQ gd03_gdtv01_project_boost.exec.p/gd03_main.cpp.o -MF gd03_gdtv01_project_boost.exec.p/gd03_main.cpp.o.d -o gd03_gdtv01_project_boost.exec.p/gd03_main.cpp.o -c ../../gd03/main.cpp",
+    "command": "/usr/bin/ccache c++ -Igd03_wi01_sponza_chars.exec.p -I. -I../.. -I../../3rdparty/turanszkij_WickedEngine/WickedEngine -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -fpch-preprocess -include wi_pch.h -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -fno-exceptions -fno-rtti -std=c++20 -O0 -DSDL2=1 -DWI_UNORDERED_MAP_TYPE=2 -mf16c -gsplit-dwarf -fms-extensions -msse2 -mfpmath=sse -march=native -Wno-switch -Wno-unused-variable -DDEVBUILD=1 -pthread -isystem/usr/include/SDL2 -D_GNU_SOURCE=1 -D_REENTRANT '-DGD_GAME_NAME=\"wi01_sponza_chars\"' -MD -MQ gd03_wi01_sponza_chars.exec.p/gd03_main.cpp.o -MF gd03_wi01_sponza_chars.exec.p/gd03_main.cpp.o.d -o gd03_wi01_sponza_chars.exec.p/gd03_main.cpp.o -c ../../gd03/main.cpp",
     "file": "../../gd03/main.cpp",
-    "output": "gd03_gdtv01_project_boost.exec.p/gd03_main.cpp.o"
+    "output": "gd03_wi01_sponza_chars.exec.p/gd03_main.cpp.o"
   }
 ]

@@ -23,5 +23,41 @@
     "C_Cpp.default.compileCommands": "${workspaceFolder}/compile_commands.json",
     "C_Cpp.default.configurationProvider": "mesonbuild.mesonbuild",
     "mesonbuild.configureOnOpen": false,
-    "clangd.arguments": [ "--compile-commands-dir=${workspaceFolder}" ]
+    "clangd.arguments": [
+        "--compile-commands-dir=${workspaceFolder}"
+    ],
+    "Lua.diagnostics.globals": [
+        "SetProfilerEnabled",
+        "runProcess",
+        "GetScene",
+        "GetCamera",
+        "LoadModel",
+        "CreateEntity",
+        "POINT",
+        "Vector",
+        "TransformComponent",
+        "RenderPath3D",
+        "application",
+        "FadeType",
+        "SpriteFont",
+        "update",
+        "getDeltaTime",
+        "WIFALIGN_CENTER",
+        "GetScreenWidth",
+        "GetScreenHeight",
+        "MOUSE_BUTTON_RIGHT",
+        "input",
+        "script_dir",
+        "vector",
+        "KEYBOARD_BUTTON_UP",
+        "KEYBOARD_BUTTON_DOWN",
+        "KEYBOARD_BUTTON_LEFT",
+        "KEYBOARD_BUTTON_RIGHT",
+        "IsThisEditor",
+        "KEYBOARD_BUTTON_ESCAPE",
+        "ReturnToEditor",
+        "CURSOR_DEFAULT",
+        "GAMEPAD_ANALOG_THUMBSTICK_R",
+        "camera"
+    ]
 }
