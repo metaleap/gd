@@ -58,6 +58,9 @@
         "ReturnToEditor",
         "CURSOR_DEFAULT",
         "GAMEPAD_ANALOG_THUMBSTICK_R",
-        "camera"
+        "camera",
+        "AO_MSAO",
+        "INVALID_ENTITY",
+        "ACES"
     ]
 }

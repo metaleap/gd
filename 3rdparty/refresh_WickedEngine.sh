@@ -11,14 +11,14 @@ depDirName="turanszkij_WickedEngine"
 
 ### clean up, fetch zip, extract zip:
 
-rm -rf $depDirName
-rm -f .tmp.zip
-wget -O .tmp.zip https://github.com/turanszkij/WickedEngine/archive/refs/tags/v$depVer.zip
-unzip .tmp.zip
-rm -f .tmp.zip
-mv WickedEngine-$depVer $depDirName
-mkdir $depDirName/.shaders
-mkdir $depDirName/.shaders/spirv
+# rm -rf $depDirName
+# rm -f .tmp.zip
+# wget -O .tmp.zip https://github.com/turanszkij/WickedEngine/archive/refs/tags/v$depVer.zip
+# unzip .tmp.zip
+# rm -f .tmp.zip
+# mv WickedEngine-$depVer $depDirName
+# mkdir $depDirName/.shaders
+# mkdir $depDirName/.shaders/spirv
 
 ### build
 
@@ -56,8 +56,8 @@ cd ..
 
 
 cd $thisScriptsDirPath
-mkdir -f turanszkij_WickedEngine/.build_dbg/Editor/themes
-mkdir -f turanszkij_WickedEngine/.build_release_gcc/Editor/themes
+mkdir -p turanszkij_WickedEngine/.build_dbg/Editor/themes
+mkdir -p turanszkij_WickedEngine/.build_release_gcc/Editor/themes
 cp *.witheme turanszkij_WickedEngine/.build_dbg/Editor/themes/
 cp *.witheme turanszkij_WickedEngine/.build_release_gcc/Editor/themes/
 cp config.ini turanszkij_WickedEngine/.build_dbg/Editor/

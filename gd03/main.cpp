@@ -55,8 +55,8 @@ int main(int argc, char** argv) {
   wi::renderer::SetShaderPath(shader_bin_dir_path);
   app.SetWindow(sdl_win.get());
   app.Initialize();
-  wi::RenderPath3D path;
-  app.ActivatePath(&path);
+  // wi::RenderPath3D path;
+  // app.ActivatePath(&path);
 
   while (true) {
     SDL_PumpEvents();
