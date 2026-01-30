@@ -1,5 +1,8 @@
 #include <SDL2/SDL.h>
 #include "WickedEngine.h"
+#include "wiInput.h"
+#include "wiRenderPath3D.h"
+#include "wiRenderer.h"
 
 
 #ifndef GD_GAME_NAME
@@ -38,8 +41,8 @@ int main(int argc, char** argv) {
     exit(1);
   }
   auto sdl_win =
-      sdl2::make_window("Updating shaders, please wait a minute...", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800,
-                        500, SDL_WINDOW_SHOWN | SDL_WINDOW_VULKAN | SDL_WINDOW_ALLOW_HIGHDPI | SDL_WINDOW_RESIZABLE);
+      sdl2::make_window("Updating shaders, please wait a minute...", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 720,
+                        450, SDL_WINDOW_SHOWN | SDL_WINDOW_VULKAN | SDL_WINDOW_ALLOW_HIGHDPI | SDL_WINDOW_RESIZABLE);
   if (!sdl_win) {
     fprintf(stderr, "Failed to make_window: %s", SDL_GetError());
     SDL_Quit();
@@ -55,12 +58,20 @@ int main(int argc, char** argv) {
   wi::renderer::SetShaderPath(shader_bin_dir_path);
   app.SetWindow(sdl_win.get());
   app.Initialize();
-  // wi::RenderPath3D path;
-  // app.ActivatePath(&path);
+  wi::RenderPath3D path;
+  app.ActivatePath(&path);
+  void setupGfx(wi::RenderPath3D * rp);
+  setupGfx(&path);
 
+  wi::input::HidePointer(true);
   while (true) {
     SDL_PumpEvents();
     app.Run();
+    wi::RenderPath3D* rp = (wi::RenderPath3D*) app.GetActivePath();
+    if (rp != nullptr) {
+      rp->setTonemap(wi::renderer::Tonemap::ACES);
+      rp->setExposure(1);
+    }
 
     static bool did_load_script_file = false;
     if ((!did_load_script_file) && wi::initializer::IsInitializeFinished()) {
@@ -118,8 +129,55 @@ int main(int argc, char** argv) {
   }
 
 quit:
+  wi::input::HidePointer(false);
   wi::jobsystem::ShutDown();
   SDL_DestroyWindow(app.window);
   SDL_Quit();
   return 0;
+}
+
+void setupGfx(wi::RenderPath3D* rp) {
+  wi::renderer::SetShadowProps2D(4096);
+  wi::renderer::SetShadowPropsCube(2048);
+  wi::renderer::SetShadowLODOverrideEnabled(false);
+  wi::renderer::SetAdvancedLightCulling(true);
+  wi::renderer::SetCapsuleShadowEnabled(true);
+  wi::renderer::SetCapsuleShadowAngle(22);
+  wi::renderer::SetCapsuleShadowFade(1);
+  wi::renderer::SetOcclusionCullingEnabled(true);
+  wi::renderer::SetTessellationEnabled(true);
+
+  rp->resolutionScale = 0.88f;
+  rp->setAO(wi::RenderPath3D::AO_MSAO);
+  rp->setAOPower(0.77f);
+  rp->setSSREnabled(true);
+  rp->setSSGIEnabled(true);
+  rp->setSSGIDepthRejection(1.23f);
+  rp->setShadowsEnabled(true);
+  rp->setReflectionsEnabled(true);
+  rp->setFXAAEnabled(true);
+  rp->setBloomEnabled(true);
+  rp->setBloomThreshold(3.21f);
+  rp->setVolumeLightsEnabled(true);
+  rp->setLightShaftsEnabled(true);
+  rp->setLightShaftsStrength(0.321f);
+  rp->setLightShaftsFadeSpeed(4);
+  rp->setMotionBlurEnabled(true);
+  rp->setMotionBlurStrength(44);
+  rp->setDitherEnabled(true);
+  rp->setMSAASampleCount(8);
+  rp->setSharpenFilterEnabled(true);
+  rp->setSharpenFilterAmount(1.11f);
+  rp->setEyeAdaptionEnabled(true);
+  rp->setEyeAdaptionRate(4);
+  rp->setEyeAdaptionKey(0.123f);
+  rp->setTonemap(wi::renderer::Tonemap::ACES);
+  rp->setExposure(1);
+  rp->setBrightness(0);
+  rp->setContrast(1.11f);
+  rp->setSaturation(0.6f);
+  rp->setChromaticAberrationEnabled(true);
+  rp->setChromaticAberrationAmount(3.21f);
+  rp->setMeshBlendEnabled(true);
+  rp->setOcclusionCullingEnabled(true);
 }
