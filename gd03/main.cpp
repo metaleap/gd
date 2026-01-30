@@ -1,8 +1,8 @@
 #include <SDL2/SDL.h>
+#include <SDL_video.h>
 #include "WickedEngine.h"
-#include "wiInput.h"
-#include "wiRenderPath3D.h"
-#include "wiRenderer.h"
+#include "wiApplication.h"
+#include "wiCanvas.h"
 
 
 #ifndef GD_GAME_NAME
@@ -42,7 +42,7 @@ int main(int argc, char** argv) {
   }
   auto sdl_win =
       sdl2::make_window("Updating shaders, please wait a minute...", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 720,
-                        450, SDL_WINDOW_SHOWN | SDL_WINDOW_VULKAN | SDL_WINDOW_ALLOW_HIGHDPI | SDL_WINDOW_RESIZABLE);
+                        450, SDL_WINDOW_SHOWN | SDL_WINDOW_VULKAN | SDL_WINDOW_ALLOW_HIGHDPI | SDL_WINDOW_BORDERLESS);
   if (!sdl_win) {
     fprintf(stderr, "Failed to make_window: %s", SDL_GetError());
     SDL_Quit();
@@ -58,20 +58,15 @@ int main(int argc, char** argv) {
   wi::renderer::SetShaderPath(shader_bin_dir_path);
   app.SetWindow(sdl_win.get());
   app.Initialize();
-  wi::RenderPath3D path;
-  app.ActivatePath(&path);
-  void setupGfx(wi::RenderPath3D * rp);
-  setupGfx(&path);
+  wi::RenderPath3D rp;
+  app.ActivatePath(&rp);
+  void setupGfx(wi::RenderPath3D*);
+  setupGfx(&rp);
 
   wi::input::HidePointer(true);
   while (true) {
     SDL_PumpEvents();
     app.Run();
-    wi::RenderPath3D* rp = (wi::RenderPath3D*) app.GetActivePath();
-    if (rp != nullptr) {
-      rp->setTonemap(wi::renderer::Tonemap::ACES);
-      rp->setExposure(1);
-    }
 
     static bool did_load_script_file = false;
     if ((!did_load_script_file) && wi::initializer::IsInitializeFinished()) {
@@ -98,6 +93,7 @@ int main(int argc, char** argv) {
               bool was_fullscreen =
                   SDL_WINDOW_FULLSCREEN_DESKTOP == (SDL_GetWindowFlags(app.window) & SDL_WINDOW_FULLSCREEN_DESKTOP);
               SDL_SetWindowFullscreen(app.window, was_fullscreen ? 0 : SDL_WINDOW_FULLSCREEN_DESKTOP);
+              rp.resolutionScale = (was_fullscreen ? 1.5644444f : 0.88f);
               break;
           }
           if (event.key.keysym.scancode == SDL_SCANCODE_BACKSPACE ||
@@ -147,7 +143,7 @@ void setupGfx(wi::RenderPath3D* rp) {
   wi::renderer::SetOcclusionCullingEnabled(true);
   wi::renderer::SetTessellationEnabled(true);
 
-  rp->resolutionScale = 0.88f;
+  rp->resolutionScale = 1.5644444f;
   rp->setAO(wi::RenderPath3D::AO_MSAO);
   rp->setAOPower(0.77f);
   rp->setSSREnabled(true);

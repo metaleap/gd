@@ -3,7 +3,7 @@ local sponza_path = script_dir() .. "/art/Sponza/Sponza.wiscene"
 runProcess(function()
 	local scene = GetScene()
 	local cam = GetCamera()
-	cam.SetFOV(44 * (math.pi / 180)) -- deg2rad
+	cam.SetFOV(45 * (math.pi / 180)) -- deg2rad
 
 	LoadModel(sponza_path)
 	local emitter = scene.Entity_FindByName("editorEmitter")
@@ -26,7 +26,7 @@ runProcess(function()
 		diff = vector.Add(diff, mouseDiff)
 		cam_transform.Rotate(Vector(diff.GetY(), diff.GetX()))
 
-		local camspeed = 4.321 * dt
+		local camspeed = 4.567 * dt
 		local camera_movement = Vector()
 		if input.Down(string.byte("W")) then
 			camera_movement = vector.Add(camera_movement, Vector(0, 0, camspeed))
