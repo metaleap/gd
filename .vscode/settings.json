@@ -61,6 +61,8 @@
         "camera",
         "AO_MSAO",
         "INVALID_ENTITY",
-        "ACES"
+        "ACES",
+        "KEYBOARD_BUTTON_LCONTROL",
+        "KEYBOARD_BUTTON_RCONTROL"
     ]
 }
