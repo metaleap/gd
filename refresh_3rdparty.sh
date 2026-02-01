@@ -10,3 +10,5 @@ rm -rf .shaders/*
 cd 3rdparty
 ./refresh_WickedEngine.sh
 cd $thisScriptsDirPath
+
+go run tools/wiLuaApiDefs/*.go
