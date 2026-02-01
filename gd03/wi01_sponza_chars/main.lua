@@ -1,6 +1,6 @@
 local sponza_path = script_dir() .. "/art/Sponza/Sponza.wiscene"
 
-runProcess(function()
+function Main()
 	local scene = GetScene()
 	local cam = GetCamera()
 	cam.SetFOV(45 * (math.pi / 180)) -- deg2rad
@@ -58,4 +58,6 @@ runProcess(function()
 			return
 		end
 	end
-end)
+end
+
+runProcess(Main)
