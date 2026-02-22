@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"io/fs"
 	"os"
 	"path/filepath"
@@ -8,21 +9,17 @@ import (
 	"strings"
 )
 
+type void = struct{}
+
 type Object struct {
 	Name        string
 	GlobalInsts []string
-	Methods     []string
-	Properties  []Property
-}
-
-type Property struct {
-	Name    string
-	GetType string
-	SetType string
+	Methods     map[string]void
+	Properties  map[string]void
 }
 
 func main() {
-	ret := map[string]Object{}
+	objs, extras := map[string]Object{}, map[string][]string{}
 
 	fs.WalkDir(os.DirFS("."), "3rdparty/turanszkij_WickedEngine", func(path string, dirEntry fs.DirEntry, err error) error {
 		if !dirEntry.IsDir() && filepath.Ext(path) == ".cpp" {
@@ -30,9 +27,9 @@ func main() {
 			src := string(data)
 			for _, name := range findOccurrences(src, "Luna<", ">") {
 				name = strings.TrimPrefix(strings.TrimPrefix(strings.TrimSuffix(strings.TrimPrefix(name, "wi::lua::"), "_BindLua"), "primitive::"), "scene::")
-				obj, exists := ret[name]
+				obj, exists := objs[name]
 				if !exists {
-					obj = Object{Name: name}
+					obj = Object{Name: name, Properties: map[string]void{}, Methods: map[string]void{}}
 				}
 				obj.GlobalInsts = append(obj.GlobalInsts, findOccurrences(src, `Luna<wi::lua::`+name+`_BindLua>::push_global(wi::lua::GetLuaState(), "`, `"`)...)
 				obj.GlobalInsts = append(obj.GlobalInsts, findOccurrences(src, `Luna<`+name+`_BindLua>::push_global(wi::lua::GetLuaState(), "`, `"`)...)
@@ -42,21 +39,25 @@ func main() {
 						i--
 					}
 				}
-
 				for _, occ := range findOccurrences(src, "lunaproperty("+name+"_BindLua, ", ")") {
-					prop := Property{Name: occ}
-
-					obj.Properties = append(obj.Properties, prop)
+					obj.Properties[occ] = void{}
 				}
+				for _, occ := range findOccurrences(src, "lunamethod("+name+"_BindLua, ", ")") {
+					obj.Methods[occ] = void{}
+				}
+				objs[name] = obj
+			}
 
-				ret[name] = obj
+			if extra := (findOccurrences(src, `wi::lua::RunText(R"(`, `)");`)); len(extra) > 0 {
+				name := strings.TrimSuffix(strings.TrimPrefix(filepath.Base(path), "wi"), "_BindLua.cpp")
+				extras[name] = append(extras[name], findOccurrences(src, `wi::lua::RunText(R"(`, `)");`)...)
 			}
 		}
 		return nil
 	})
 
-	// data, _ := json.MarshalIndent(ret, "", "  ")
-	// println(string(data))
+	data, _ := json.MarshalIndent([]any{objs, extras}, "", "  ")
+	println(string(data))
 }
 
 func findOccurrences(src string, start string, end string) (ret []string) {
